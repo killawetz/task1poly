@@ -8,18 +8,19 @@ public class Schedule {
         this.schedule = lisOfTrains;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+//        if (!obj.getClass().isAssignableFrom(Schedule.class)) throw new IllegalArgumentException("pisya"); // проверяю что объект, который я передаю, тоже является Schedule
+        return ((Schedule) obj).schedule.equals(this.schedule);
+    }
+
 
     public void addNewTrain(Train podj) {
         schedule.add(podj);
     }
 
-    public void deleteTrain(String zubik) {
-        for (int i = 0; i < schedule.size(); i++) {
-            if (schedule.get(i).getTrainName().equals(zubik)) {
-                schedule.remove(i);
-                break;
-            }
-        }
+    public void deleteTrain(Train zubik) {
+        schedule.remove(zubik);
     }
 
     public int timeStrToMinute(String time) {  // Время представленное строкой представляю в виде минут прошедших с 00:00

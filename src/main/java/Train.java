@@ -1,6 +1,4 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Train {
 
@@ -19,7 +17,10 @@ public class Train {
 
     @Override
     public boolean equals(Object obj) {
-        return obj == this;
+        if (!obj.getClass().isAssignableFrom(Train.class)) throw new IllegalArgumentException(); // проверяю что объект, который я передаю, тоже является Train
+        return(((Train) obj).trainName.equals(this.trainName) && ((Train) obj).departureTime.equals(this.departureTime) &&
+                ((Train) obj).lastStationName.equals(this.lastStationName)
+                && ((Train) obj).stations.equals(this.stations));
     }
 
 
