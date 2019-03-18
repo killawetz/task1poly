@@ -15,12 +15,12 @@ public class Schedule {
     }
 
 
-    public void addNewTrain(Train podj) {
-        schedule.add(podj);
+    public void addNewTrain(Train nameTrain) {
+        schedule.add(nameTrain);
     }
 
-    public void deleteTrain(Train zubik) {
-        schedule.remove(zubik);
+    public void deleteTrain(Train nameTrain) {
+        schedule.remove(nameTrain);
     }
 
     public int timeStrToMinute(String time) {  // Время представленное строкой представляю в виде минут прошедших с 00:00
@@ -40,7 +40,7 @@ public class Schedule {
                     && schedule.get(i).getLastStationName().equals(destination)) sortedSchedule.add(schedule.get(i));
         }
         Train trainOfSorted = sortedSchedule.get(0);
-        for (int j = 1; j < sortedSchedule.size() ; j++) {
+        for (int j = 1; j < sortedSchedule.size(); j++) {
             if( timeStrToMinute(trainOfSorted.getDepartureTime())
                     > timeStrToMinute(sortedSchedule.get(j).getDepartureTime())) trainOfSorted = sortedSchedule.get(j);
         }

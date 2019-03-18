@@ -8,12 +8,12 @@ public class scheduleTest {
 
  //Объекты поезда для тестирования методов
 
-    private Train winston = new Train("Винстон",
+    private Train sapsan = new Train("Сапсан",
             "15:27",
             new ArrayList<String>(Arrays.asList("Академ","Гражданский")),
             "Девяткино");
 
-    private Train winston2 = new Train("Винстон",
+    private Train sapsan2 = new Train("Сапсан",
             "15:27",
             new ArrayList<String>(Arrays.asList("Академ","Гражданский","Новая станция")),
             "Девяткино");
@@ -31,44 +31,44 @@ public class scheduleTest {
 
     @Test
     public void addNewStation() {
-        winston.addNewStation("Новая станция");
-        assertEquals(winston, winston2);
+        sapsan.addNewStation("Новая станция");
+        assertEquals(sapsan, sapsan2);
     }
 
     @Test
     public void deleteStation() {
-        winston2.deleteStation("Новая станция");
-        assertEquals(winston2,winston);
+        sapsan2.deleteStation("Новая станция");
+        assertEquals(sapsan2, sapsan);
     }
 
     //Два объекта поезда для тестирования методов класса Schedule
 
-    private Schedule mayakovskaya = new Schedule(new ArrayList<Train>(Arrays.asList(winston)));
-    private Schedule nevskiy = new Schedule(new ArrayList<Train>(Arrays.asList(winston, winston2)));
+    private Schedule mayakovskaya = new Schedule(new ArrayList<Train>(Arrays.asList(sapsan)));
+    private Schedule nevskiy = new Schedule(new ArrayList<Train>(Arrays.asList(sapsan, sapsan2)));
 
     // тесты класса Schedule
 
     @Test
     public void addNewTrain() {
-        mayakovskaya.addNewTrain(winston2);
+        mayakovskaya.addNewTrain(sapsan2);
            assertEquals(mayakovskaya, nevskiy);
     }
 
 
     @Test
     public void deleteTrain() {
-        mayakovskaya.deleteTrain(winston2);
-        nevskiy.deleteTrain(winston2);
+        mayakovskaya.deleteTrain(sapsan2);
+        nevskiy.deleteTrain(sapsan2);
         assertEquals(mayakovskaya,nevskiy);
     }
 
     // еще один объект для теста routeSearch
-    private Schedule avtovo = new Schedule(new ArrayList<Train>(Arrays.asList(winston2, skorohod, lokomotiv)));
+    private Schedule avtovo = new Schedule(new ArrayList<Train>(Arrays.asList(sapsan2, skorohod, lokomotiv)));
 
 
     @Test
     public void routeSearch(){
     assertEquals(skorohod, avtovo.routeSearch("9:00", "Девяткино"));
-    assertEquals(winston2,avtovo.routeSearch("13:00","Девяткино"));
+    assertEquals(sapsan2,avtovo.routeSearch("13:00","Девяткино"));
     }
 }

@@ -42,13 +42,13 @@ public class Train {
 
 
 
-    public void addNewStation(String kirza) {
-        stations.add(kirza);
+    public void addNewStation(String newStation) {
+        stations.add(newStation);
     }
 
-    public void deleteStation(String vetra) {
+    public void deleteStation(String newStation) {
         for (int i = 0; i < stations.size() ; i++) {
-            if (stations.get(i).equals(vetra)) {
+            if (stations.get(i).equals(newStation)) {
                 stations.remove(i);
                 break;
             }
